@@ -19,7 +19,8 @@ app.post('/reverse-url', async (req, res) => {
         console.log(`Received response with status: ${response.data}`);
         res.json({ data: response.data });
     } catch (error) {
-        res.status(500).json({ error: 'Failed to reverse URL' });
+        const statusCode = error.response?.status || 500;
+        res.status(statusCode).json({ error: error.response?.data || 'Failed to reverse URL' });
     }
 });
 
