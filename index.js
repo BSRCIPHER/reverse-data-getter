@@ -23,6 +23,10 @@ app.post('/reverse-url', async (req, res) => {
     }
 });
 
+app.get('/', (req, res) => {
+    res.send('Reverse Data Builder API is running');
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
